@@ -17,4 +17,7 @@ public class Person {
     private String name;
     private String email;
     private String phone;
+
+    @ManyToMany(mappedBy = "person")
+    private List<Person> contacts;
 }

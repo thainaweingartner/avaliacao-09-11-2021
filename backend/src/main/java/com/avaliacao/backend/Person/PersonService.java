@@ -11,12 +11,60 @@ public class PersonService {
     private PersonRepository personRepository;
 
     public Person save(Person person){
+        if(personRepository.existsByEmail(person.email)) {
+            throw Error('This email is already registered');
+        }
+        if(personRepository.existsByPhone(person.phone)) {
+            throw Error('This phone is already registered');
+        }
         return personRepository.save(person);
     }
 
-    public Person findById(Long clientId){
-        Person person =  personRepository.findById(clientId)
-                .orElseThrow(()-> new RuntimeException("Person no found"));
+    public Person findById(Long personId){
+        Person person =  personRepository.findById(personId)
+                .orElseThrow(()-> new RuntimeException("Person not found"));
         return person;
+    }
+
+    public Person findAll(){
+        List<Person> people =  personRepository.findAll();
+        return people;
+    }
+
+    public Person update(Long personId, Person person){
+        Person personFound =  personRepository.findById(personId)
+                .orElseThrow(()-> new RuntimeException("Person not found"));
+        personFound.setEmail(person.email);
+        personFound.setName(person.name);
+        personFound.setPhone(person.phone);
+        personRepository.save(personFound);
+        return personFound;
+    }
+
+    public void delete(Long personId){
+        Person personFound =  personRepository.findById(personId)
+                .orElseThrow(()-> new RuntimeException("Person not found"));
+        personRepository.deleteById(personId);
+    }
+
+//    public Person update(Long contactId, Long personId){
+//        Person personFound =  personRepository.findById(personId)
+//                .orElseThrow(()-> new RuntimeException("Person not found"));
+//        Person contactFound =  personRepository.findById(personId)
+//                .orElseThrow(()-> new RuntimeException("Person to add not found"));
+//        personFound.setContacts(person.phone);
+//        personRepository.save(personFound);
+//        return personFound;
+//    }
+
+    public List<Person> findAllContacts(Long personId){
+        List<Person> contacts =  personRepository.findAllContacts(personId)
+                .orElseThrow(()-> new RuntimeException("Person has no contacts"));
+        return contacts;
+    }
+
+    public void findAllContacts(Long personId){
+        personRepository.deleteContact(contactId, personId)
+                .orElseThrow(()-> new RuntimeException("This contact is not on the contact list of this person"));
     }
 }
