@@ -31,7 +31,7 @@ public class PersonController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Person>> findAllPeople(){
+    public ResponseEntity<List<Person>> index(){
         List<Person> people = personService.findAll();
         return new ResponseEntity<>(people, HttpStatus.OK);
     }
