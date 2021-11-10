@@ -1,4 +1,4 @@
-package com.avaliacao.backend.Person;
+package com.avaliacao.backend.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

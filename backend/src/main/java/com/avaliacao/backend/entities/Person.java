@@ -1,8 +1,11 @@
-package com.avaliacao.backend.Person;
+package com.avaliacao.backend.entities;
 
+import com.avaliacao.backend.dto.PersonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,12 +20,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany(mappedBy = "person")
+    @OneToMany
     private List<Email> emails;
-    @OneToMany(mappedBy = "person")
+    @OneToMany
     private List<Phone> phones;
     @OneToOne
     private ContactList contacts;
+
+    public static Person from(PersonDTO personDTO) {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        return modelMapper.map(personDTO, Person.class);
+    }
+
 
     public Long getId() {
         return id;
