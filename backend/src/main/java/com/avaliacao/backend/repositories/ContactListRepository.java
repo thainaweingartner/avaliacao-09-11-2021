@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface ContactListRepository extends JpaRepository<ContactList, Long> {
-    Optional<Person> findContact(Long contactId, Long personId);
-    Optional<List<Person>> findContacts(Long personId);
-    void deleteContact(Long contactId, Long personId);
+//    Optional<Person> findContact(Long contactId, Long personId);
+//    Optional<List<Person>> findContacts(Long personId);
+//    void deleteContact(Long contactId, Long personId);
 }

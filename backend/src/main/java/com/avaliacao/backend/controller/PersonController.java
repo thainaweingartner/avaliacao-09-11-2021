@@ -1,7 +1,6 @@
 package com.avaliacao.backend.controller;
 
 import com.avaliacao.backend.entities.Person;
-import com.avaliacao.backend.dto.PersonDTO;
 import com.avaliacao.backend.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +21,7 @@ public class PersonController {
 
     //CRUD Person
     @PostMapping
-    public ResponseEntity<Person> createPerson(@RequestBody PersonDTO person) throws Exception {
+    public ResponseEntity<Person> createPerson(@RequestBody Person person) throws Exception {
         Person person1 = personService.save(person);
         return new ResponseEntity<>(person1, HttpStatus.CREATED);
     }
@@ -52,29 +51,29 @@ public class PersonController {
     }
 
     //CRUD ContactList
-    @PutMapping("/add/{contactId}")
-    public ResponseEntity<Person> addToContactList(@PathVariable Long contactId, Long personId){
-        Person person = personService.addContact(contactId, personId);
-        return new ResponseEntity<>(person, HttpStatus.OK);
-    }
+//    @PutMapping("/add/{contactId}")
+//    public ResponseEntity<Person> addToContactList(@PathVariable Long contactId, Long personId){
+//        Person person = personService.addContact(contactId, personId);
+//        return new ResponseEntity<>(person, HttpStatus.OK);
+//    }
+//
+//    @GetMapping("/contacts/{personId}")
+//    public ResponseEntity<List<Person>> findAllContacts(@PathVariable Long personId) throws Exception {
+//        try {
+//            List<Person> contacts = personService.findAllContacts(personId);
+//            return new ResponseEntity<>(contacts, HttpStatus.OK);
+//        } catch (Exception e) {
+//            throw new Exception(e);
+//        }
+//    }
 
-    @GetMapping("/contacts/{personId}")
-    public ResponseEntity<List<Person>> findAllContacts(@PathVariable Long personId) throws Exception {
-        try {
-            List<Person> contacts = personService.findAllContacts(personId);
-            return new ResponseEntity<>(contacts, HttpStatus.OK);
-        } catch (Exception e) {
-            throw new Exception(e);
-        }
-    }
-
-    @DeleteMapping("/delete/{contactId}")
-    public ResponseEntity.BodyBuilder deleteContact(@PathVariable Long contactId, Long personId) {
-        try {
-            personService.deleteContact(contactId, personId);
-            return ResponseEntity.status(HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED);
-        }
-    }
+//    @DeleteMapping("/delete/{contactId}")
+//    public ResponseEntity.BodyBuilder deleteContact(@PathVariable Long contactId, Long personId) {
+//        try {
+//            personService.deleteContact(contactId, personId);
+//            return ResponseEntity.status(HttpStatus.OK);
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED);
+//        }
+//    }
 }

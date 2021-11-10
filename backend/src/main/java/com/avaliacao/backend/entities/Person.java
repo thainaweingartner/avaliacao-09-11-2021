@@ -1,14 +1,10 @@
 package com.avaliacao.backend.entities;
 
-import com.avaliacao.backend.dto.PersonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.convention.MatchingStrategies;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Data
@@ -20,19 +16,8 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
-    private List<Email> emails;
-    @OneToMany
-    private List<Phone> phones;
-    @OneToOne
-    private ContactList contacts;
-
-    public static Person from(PersonDTO personDTO) {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
-        return modelMapper.map(personDTO, Person.class);
-    }
-
+    private String email;
+    private String phone;
 
     public Long getId() {
         return id;
@@ -50,27 +35,19 @@ public class Person {
         this.name = name;
     }
 
-    public List<Email> getEmails() {
-        return emails;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmails(List<Email> emails) {
-        this.emails = emails;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<Phone> getPhones() {
-        return phones;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
-    }
-
-    public ContactList getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(ContactList contacts) {
-        this.contacts = contacts;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
