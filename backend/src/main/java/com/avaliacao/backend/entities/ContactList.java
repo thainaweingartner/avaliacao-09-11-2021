@@ -1,4 +1,4 @@
-package com.avaliacao.backend.Person;
+package com.avaliacao.backend.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,7 +9,7 @@ public class ContactList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "contactList")
+    @OneToMany
     private List<Person> contacts;
 
     public Long getId() {

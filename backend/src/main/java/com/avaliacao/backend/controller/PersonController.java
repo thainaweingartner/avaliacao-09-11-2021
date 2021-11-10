@@ -1,6 +1,8 @@
-package com.avaliacao.backend.Person;
+package com.avaliacao.backend.controller;
 
-import lombok.AllArgsConstructor;
+import com.avaliacao.backend.entities.Person;
+import com.avaliacao.backend.dto.PersonDTO;
+import com.avaliacao.backend.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +22,7 @@ public class PersonController {
 
     //CRUD Person
     @PostMapping
-    public ResponseEntity<Person> createPerson(@RequestBody Person person) throws Exception {
+    public ResponseEntity<Person> createPerson(@RequestBody PersonDTO person) throws Exception {
         Person person1 = personService.save(person);
         return new ResponseEntity<>(person1, HttpStatus.CREATED);
     }

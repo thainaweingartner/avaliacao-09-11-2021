@@ -1,5 +1,9 @@
-package com.avaliacao.backend.Person;
+package com.avaliacao.backend.service;
 
+import com.avaliacao.backend.entities.Person;
+import com.avaliacao.backend.dto.PersonDTO;
+import com.avaliacao.backend.repositories.ContactListRepository;
+import com.avaliacao.backend.repositories.PersonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,22 +11,22 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
+    private ContactListRepository contactListRepository;
 
-    public Person save(Person person) throws Exception {
-        if(personRepository.existByEmail(person.getEmails())) {
+    public Person save(PersonDTO person) throws Exception {
+        if(personRepository.existByEmail(person.getEmail())) {
             throw new Exception("This email is already registered");
         }
-        if(personRepository.existByPhone(person.getPhones())) {
+        if(personRepository.existByPhone(person.getPhone())) {
             throw new Exception("This phone is already registered");
         }
-        return personRepository.save(person);
+        return personRepository.save(Person.from(person));
     }
 
     public Person findById(Long personId){
@@ -65,12 +69,12 @@ public class PersonService {
     }
 
     public List<Person> findAllContacts(Long personId) throws Exception{
-        List<Person> contacts = personRepository.findAllContacts(personId).orElseThrow(() -> new RuntimeException("Person has no contacts"));
+        List<Person> contacts = contactListRepository.findContacts(personId).orElseThrow(() -> new RuntimeException("Person has no contacts"));
         return contacts;
     }
 
     public void deleteContact(Long contactId, Long personId) throws Exception{
-        personRepository.findContact(contactId, personId).orElseThrow(()-> new RuntimeException("This contact is not on the contact list of this person"));
-        personRepository.deleteContact(contactId, personId);
+        contactListRepository.findContact(contactId, personId).orElseThrow(()-> new RuntimeException("This contact is not on the contact list of this person"));
+        contactListRepository.deleteContact(contactId, personId);
     }
 }
