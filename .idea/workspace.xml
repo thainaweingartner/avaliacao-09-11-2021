@@ -12,10 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f1036437-5bf4-425f-9116-12761229eb22" name="Default Changelist" comment="creating projects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend/Person/PersonService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/java/com/avaliacao/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -51,13 +47,15 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,6 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636497289390</updated>
       <workItem from="1636497290514" duration="4407000" />
+      <workItem from="1636638912156" duration="713000" />
     </task>
     <servers />
   </component>
@@ -88,12 +87,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="creating projects" />
     <option name="LAST_COMMIT_MESSAGE" value="creating projects" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="161" key="#Plugins" timestamp="1636638941919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="161" key="#Plugins/0.0.1920.1040/-1920.3.1920.1040@0.0.1920.1040" timestamp="1636638941919" />
     <state x="-1245" y="56" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1636498533534">
       <screen x="-1920" y="-277" width="1920" height="1055" />
     </state>
@@ -102,5 +106,9 @@
       <screen x="-1920" y="-277" width="1920" height="1055" />
     </state>
     <state x="-1430" y="-177" key="CommitChangelistDialog2/1792.-259.1920.1055/-1920.-277.1920.1055/0.25.1792.1095@-1920.-277.1920.1055" timestamp="1636497819238" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1636638922142">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.3.1920.1040@0.0.1920.1040" timestamp="1636638922142" />
   </component>
 </project>
