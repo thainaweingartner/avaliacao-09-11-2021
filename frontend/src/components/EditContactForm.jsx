@@ -97,6 +97,7 @@ const EditContactForm = ( props ) => {
               variant="contained"
               size="large"
               type="submit"
+              name="save-button"
             >
               SAVE CONTACT
             </Button>

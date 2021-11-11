@@ -48,10 +48,10 @@ const ContactCard = (props) => {
           </Typography>
         </CardContent>
         <CardActions disableSpacing>
-          <IconButton aria-label="edit" onClick={openEditForm}>
+          <IconButton id={`${contact.phone}-edit-button`} aria-label="edit" onClick={openEditForm}>
             <Edit />
           </IconButton>
-          <IconButton aria-label="delete" onClick={deleteContact}>
+          <IconButton id={`${contact.phone}-delete-button`} aria-label="delete" onClick={deleteContact}>
             <Delete />
           </IconButton>
         </CardActions>

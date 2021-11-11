@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <Root>
       <Typography variant="h2">Welcome to your Contact List</Typography>
-      <Button variant="outlined" onClick={formOpen}>Add new Contact</Button>
+      <Button name="add-button" variant="outlined" onClick={formOpen}>Add new Contact</Button>
       <Content>
         {contacts.map(contact => (
             <ContactCard 

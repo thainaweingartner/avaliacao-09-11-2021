@@ -34,6 +34,11 @@ const AddContactForm = ( props ) => {
     try {
       await api.post('/person', values);
       handleFormClose();
+      setValues({
+        name: '',
+        phone: '',
+        email: '',
+      })
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -104,6 +109,7 @@ const AddContactForm = ( props ) => {
               variant="contained"
               size="large"
               type="submit"
+              name="save-button"
               disabled={!values.email || !values.name || !values.phone}
             >
               SAVE CONTACT
