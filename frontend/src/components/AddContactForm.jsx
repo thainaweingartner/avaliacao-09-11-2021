@@ -35,7 +35,7 @@ const AddContactForm = ( props ) => {
       await api.post('/person', values);
       handleFormClose();
     } catch (error) {
-      alert(error.request.message)
+      alert(error.response.data.message);
     }
   }
   
@@ -43,7 +43,7 @@ const AddContactForm = ( props ) => {
     <Dialog open={openForm} onClose={handleFormClose} maxWidth="xs">
       <DialogContent style={{ padding: 0 }}>
         <Card>
-          <form autoComplete="off" onSubmit={submitForm}>
+          <form onSubmit={submitForm} data-testid="form">
           <CardHeader title="Add Contact" />
           <Divider />
           <CardContent>
@@ -53,6 +53,7 @@ const AddContactForm = ( props ) => {
                   fullWidth
                   label="Nome"
                   name="name"
+                  data-testid="name"
                   onChange={updateValue}
                   required
                   value={values.name}
@@ -65,6 +66,7 @@ const AddContactForm = ( props ) => {
                   label="Email"
                   name="email"
                   type="email"
+                  data-testid="email"
                   onChange={updateValue}
                   required
                   value={values.email}
@@ -76,6 +78,7 @@ const AddContactForm = ( props ) => {
                   fullWidth
                   label="Telephone"
                   name="phone"
+                  data-testid="phone"
                   type="tel"
                   onChange={updateValue}
                   required
@@ -101,6 +104,7 @@ const AddContactForm = ( props ) => {
               variant="contained"
               size="large"
               type="submit"
+              disabled={!values.email || !values.name || !values.phone}
             >
               SAVE CONTACT
             </Button>

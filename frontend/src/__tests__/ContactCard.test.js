@@ -11,7 +11,7 @@ const mockedContact = {
 };
 const updateCards = false;
 
-const updatecards = () => {return false};
+const updatecards = jest.fn();
 
 describe(`${ContactCard.name}`, () => {
   
