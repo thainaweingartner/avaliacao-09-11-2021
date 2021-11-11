@@ -39,6 +39,7 @@ public class PersonService {
     public Person update(Long personId, Person person){
         Person personFound =  personRepository.findById(personId)
                 .orElseThrow(()-> new RuntimeException("Person not found"));
+
         personFound.setEmail(person.getEmail());
         personFound.setName(person.getName());
         personFound.setPhone(person.getPhone());

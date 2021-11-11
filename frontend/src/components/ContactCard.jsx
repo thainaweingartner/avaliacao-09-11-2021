@@ -43,7 +43,7 @@ const ContactCard = (props) => {
           subheader={contact.phone}
         />
         <CardContent>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary" data-testId="card-email">
             {contact.email}
           </Typography>
         </CardContent>

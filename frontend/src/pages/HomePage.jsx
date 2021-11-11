@@ -45,6 +45,7 @@ const HomePage = () => {
         ))}
       </Content>
       <AddContactForm openForm={formOpened} handleFormClose={formClose} />
+      <Typography variant="body2">Developed by Thainá Weingartner Chagas in 2021</Typography>
     </Root>
   );
 };

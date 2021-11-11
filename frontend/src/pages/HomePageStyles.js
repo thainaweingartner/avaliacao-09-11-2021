@@ -10,7 +10,7 @@ export const Root = styled.div`
   justify-content: top;
   height: 100vh;
 
-  h2 {
+  h2, p {
     align-self: center;
   }
 `;
@@ -21,4 +21,5 @@ export const Content = styled.div`
     align-items: flex-start;
     gap: 20px 20px;
     flex-wrap: wrap;
+    height: 100%;
 `;
