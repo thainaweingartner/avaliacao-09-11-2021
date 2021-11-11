@@ -14,13 +14,9 @@ import React, { useState } from 'react';
 
 import api from '../api/apiConfig';
 
-const AddContactForm = ( props ) => {
-  const { openForm, handleFormClose } = props;
-  const [values, setValues] = useState({
-    name: '',
-    phone: '',
-    email: '',
-  });
+const EditContactForm = ( props ) => {
+  const { openForm, handleFormClose, contact } = props;
+  const [values, setValues] = useState(contact);
 
   const updateValue = (event) => {
     setValues({
@@ -32,10 +28,10 @@ const AddContactForm = ( props ) => {
   const submitForm = async (event) => {
     event.preventDefault();
     try {
-      await api.post('/person', values);
+      await api.put(`/person/update/${contact.id}`, values);
       handleFormClose();
     } catch (error) {
-      alert(error.request.message)
+      alert('error', `${error}`)
     }
   }
   
@@ -112,4 +108,4 @@ const AddContactForm = ( props ) => {
   );
 };
 
-export default AddContactForm;
+export default EditContactForm;

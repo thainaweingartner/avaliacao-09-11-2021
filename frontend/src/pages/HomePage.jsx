@@ -10,6 +10,7 @@ import { Content, Root } from './HomePageStyles';
 const HomePage = () => {
   const [contacts, setContacts] = useState([]);
   const [formOpened, setFormOpened] = useState(false);
+  const [updateCards, setUpdateCards] = useState(true);
 
   const getContacts = async () => {
     const { data } = await api.get('/person/');
@@ -18,7 +19,7 @@ const HomePage = () => {
 
   useEffect(() => {
     getContacts();
-  }, []);
+  }, [updateCards]);
 
   const formOpen = () => {
     setFormOpened(true);
@@ -26,6 +27,7 @@ const HomePage = () => {
 
   const formClose = () => {
     setFormOpened(false);
+    setUpdateCards(!updateCards);
   }
 
   return (
@@ -34,7 +36,12 @@ const HomePage = () => {
       <Button variant="outlined" onClick={formOpen}>Add new Contact</Button>
       <Content>
         {contacts.map(contact => (
-            <ContactCard contact={contact}/>
+            <ContactCard 
+              contact={contact} 
+              key={contact.id} 
+              updateCards={setUpdateCards} 
+              updatecards={updateCards}
+            />
         ))}
       </Content>
       <AddContactForm openForm={formOpened} handleFormClose={formClose} />

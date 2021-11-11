@@ -17,4 +17,8 @@ export const Root = styled.div`
 
 export const Content = styled.div`
     display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 20px 20px;
+    flex-wrap: wrap;
 `;
